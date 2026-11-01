@@ -1,0 +1,288 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "数据科学全景地铁图",
+  "subtitle": "六条线，从数据到决策。没有定论的地方标着问号。",
+  "fictional": false,
+  "keepLatin": [
+   "CRISP-DM"
+  ]
+ },
+ "lines": [
+  {
+   "no": 1,
+   "name": "生命周期线",
+   "role": "CRISP-DM 六个阶段，全图的主干。"
+  },
+  {
+   "no": 2,
+   "name": "数学统计线",
+   "role": "从基础数学一路通到评估模型。"
+  },
+  {
+   "no": 3,
+   "name": "数据工程线",
+   "role": "数据从哪来、怎么变成模型能用的。"
+  },
+  {
+   "no": 4,
+   "name": "机器学习线",
+   "role": "从建模出发，一直到大语言模型。"
+  },
+  {
+   "no": 5,
+   "name": "上线运维线",
+   "role": "模型上线以后的循环。"
+  },
+  {
+   "no": 6,
+   "name": "业务决策线",
+   "role": "数据科学怎么变成决定。"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "biz",
+   "label": "业务理解",
+   "type": "process",
+   "note": "CRISP-DM 第一阶段；部署后的经验回到这里。"
+  },
+  {
+   "id": "understand",
+   "label": "数据理解",
+   "type": "process",
+   "note": "CRISP-DM 第二阶段。"
+  },
+  {
+   "id": "prep",
+   "label": "数据准备",
+   "type": "process",
+   "note": "CRISP-DM 第三阶段；数据仓库供它使用。"
+  },
+  {
+   "id": "model",
+   "label": "建模",
+   "type": "process",
+   "note": "CRISP-DM 第四阶段。"
+  },
+  {
+   "id": "evaluate",
+   "label": "评估",
+   "type": "decision",
+   "note": "CRISP-DM 第五阶段；评估模型要用到数学统计。"
+  },
+  {
+   "id": "deploy",
+   "label": "部署",
+   "type": "process",
+   "note": "CRISP-DM 第六阶段。"
+  },
+  {
+   "id": "stats",
+   "label": "概率统计",
+   "type": "document"
+  },
+  {
+   "id": "design",
+   "label": "实验设计",
+   "type": "document"
+  },
+  {
+   "id": "source",
+   "label": "数据源",
+   "type": "external"
+  },
+  {
+   "id": "dw",
+   "label": "数据仓库",
+   "type": "store"
+  },
+  {
+   "id": "classic",
+   "label": "经典机器学习",
+   "type": "process",
+   "note": "包括监督学习和无监督学习。"
+  },
+  {
+   "id": "deep",
+   "label": "深度学习",
+   "type": "process"
+  },
+  {
+   "id": "llm",
+   "label": "大语言模型",
+   "type": "process"
+  },
+  {
+   "id": "monitor",
+   "label": "监控",
+   "type": "process",
+   "note": "监控发现数据漂移，就回到建模。"
+  },
+  {
+   "id": "metric",
+   "label": "定义指标",
+   "type": "process",
+   "note": "业务理解之后定义指标，用它支持决策。"
+  },
+  {
+   "id": "decide",
+   "label": "业务决策",
+   "type": "actor"
+  },
+  {
+   "id": "boundary",
+   "label": "和统计学的边界",
+   "type": "document",
+   "status": "unknown",
+   "basis": "数据科学和统计学的边界在哪里？"
+  },
+  {
+   "id": "why",
+   "label": "模型为何这么判",
+   "type": "document",
+   "status": "unknown",
+   "basis": "深度模型为什么做出这个判断？"
+  },
+  {
+   "id": "takeover",
+   "label": "大模型接管哪步",
+   "type": "document",
+   "status": "unknown",
+   "basis": "大语言模型会接管这条生命周期里的哪几步？"
+  }
+ ],
+ "edges": [
+  {
+   "from": "biz",
+   "to": "understand",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "understand",
+   "to": "prep",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "prep",
+   "to": "model",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "model",
+   "to": "evaluate",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "evaluate",
+   "to": "deploy",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "deploy",
+   "to": "biz",
+   "type": "returns",
+   "line": 1,
+   "label": "经验回到业务理解"
+  },
+  {
+   "from": "design",
+   "to": "evaluate",
+   "type": "flow",
+   "line": 2
+  },
+  {
+   "from": "dw",
+   "to": "prep",
+   "type": "flow",
+   "line": 3
+  },
+  {
+   "from": "model",
+   "to": "classic",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "deep",
+   "to": "llm",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "biz",
+   "to": "metric",
+   "type": "flow",
+   "line": 6
+  },
+  {
+   "from": "deep",
+   "to": "why",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "深度模型为什么做出这个判断？"
+  },
+  {
+   "from": "llm",
+   "to": "takeover",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "大语言模型会接管这条生命周期里的哪几步？"
+  },
+  {
+   "from": "stats",
+   "to": "design",
+   "type": "flow",
+   "line": 2
+  },
+  {
+   "from": "source",
+   "to": "dw",
+   "type": "writes",
+   "line": 3
+  },
+  {
+   "from": "classic",
+   "to": "deep",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "deploy",
+   "to": "monitor",
+   "type": "flow",
+   "line": 5
+  },
+  {
+   "from": "stats",
+   "to": "boundary",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "数据科学和统计学的边界在哪里？"
+  },
+  {
+   "from": "prep",
+   "to": "model",
+   "type": "flow",
+   "line": 3
+  },
+  {
+   "from": "metric",
+   "to": "decide",
+   "type": "flow",
+   "line": 6
+  },
+  {
+   "from": "monitor",
+   "to": "model",
+   "type": "triggers",
+   "line": 5,
+   "label": "发现数据漂移"
+  }
+ ]
+}

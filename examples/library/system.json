@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "lang": "en",
+    "title": "Fernhollow Library: Book Loans",
+    "subtitle": "How a book leaves the shelf, comes back, and who gets told.",
+    "fictional": true
+  },
+  "lines": [
+    {
+      "no": 1,
+      "name": "Loan line",
+      "role": "A member finds a book and borrows it."
+    },
+    {
+      "no": 2,
+      "name": "Hold line",
+      "role": "A book already out is requested and held."
+    },
+    {
+      "no": 3,
+      "name": "Return line",
+      "role": "A book comes back and reaches the shelf."
+    },
+    {
+      "no": 4,
+      "name": "Reminder line",
+      "role": "A late loan produces a reminder."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "member",
+      "label": "Member",
+      "type": "actor",
+      "note": "Anyone holding a Fernhollow library card."
+    },
+    {
+      "id": "search",
+      "label": "Catalogue search",
+      "type": "process",
+      "note": "Members look up a title on the website or the lobby terminals."
+    },
+    {
+      "id": "card",
+      "label": "Card check",
+      "type": "decision",
+      "note": "Confirms the card is valid before a loan is allowed."
+    },
+    {
+      "id": "kiosk",
+      "label": "Checkout kiosk",
+      "type": "process",
+      "note": "Scans the card and the book, then records the loan."
+    },
+    {
+      "id": "ledger",
+      "label": "Loan ledger",
+      "type": "store",
+      "note": "One row per loan: member, book, date out, date due, date back."
+    },
+    {
+      "id": "receipt",
+      "label": "Due-date receipt",
+      "type": "document",
+      "note": "Printed at the kiosk. States the due date, 21 days after the loan."
+    },
+    {
+      "id": "catalogue",
+      "label": "Catalogue database",
+      "type": "store",
+      "note": "Every title and copy, with its current shelf location."
+    },
+    {
+      "id": "holdq",
+      "label": "Hold queue",
+      "type": "queue",
+      "note": "Requests for books that are out, oldest first."
+    },
+    {
+      "id": "holdshelf",
+      "label": "Hold shelf",
+      "type": "process",
+      "note": "Reserved copies wait here for seven days."
+    },
+    {
+      "id": "bin",
+      "label": "Return bin",
+      "type": "process",
+      "note": "A slot in the front wall, open all hours."
+    },
+    {
+      "id": "scanner",
+      "label": "Return scanner",
+      "type": "process",
+      "note": "A volunteer scans each book each morning."
+    },
+    {
+      "id": "cart",
+      "label": "Sorting cart",
+      "type": "process",
+      "note": "Returned books wait here to be sorted by section."
+    },
+    {
+      "id": "shelves",
+      "label": "Open shelves",
+      "type": "store",
+      "note": "The physical collection on the two public floors."
+    },
+    {
+      "id": "overdue",
+      "label": "Overdue check",
+      "type": "decision",
+      "note": "Runs each night and finds loans past their due date."
+    },
+    {
+      "id": "sender",
+      "label": "Reminder sender",
+      "type": "process",
+      "note": "Writes the reminder message for each late loan."
+    },
+    {
+      "id": "mailer",
+      "label": "Message provider",
+      "type": "external",
+      "status": "unknown",
+      "basis": "Does the reminder go by email, by text or both, and who supplies the service?"
+    },
+    {
+      "id": "fees",
+      "label": "Fee account",
+      "type": "store",
+      "status": "inferred",
+      "basis": "The brief says cards with unpaid fees are blocked, so fees must be held somewhere per member."
+    },
+    {
+      "id": "desk",
+      "label": "Circulation desk",
+      "type": "actor",
+      "note": "Two staff members who can override a blocked card."
+    },
+    {
+      "id": "report",
+      "label": "Monthly loan report",
+      "type": "document",
+      "status": "inferred",
+      "basis": "The board reviews loan counts monthly, which suggests a report drawn from the ledger."
+    },
+    {
+      "id": "partner",
+      "label": "Partner libraries",
+      "type": "external",
+      "status": "unknown",
+      "basis": "Can a hold be filled by another library, and how would that book be tracked?"
+    }
+  ],
+  "edges": [
+    {
+      "from": "member",
+      "to": "search",
+      "type": "flow",
+      "line": 1,
+      "label": "Looks up a title"
+    },
+    {
+      "from": "search",
+      "to": "card",
+      "type": "flow",
+      "line": 1,
+      "label": "Goes to borrow it"
+    },
+    {
+      "from": "card",
+      "to": "kiosk",
+      "type": "flow",
+      "line": 1,
+      "label": "Card is valid"
+    },
+    {
+      "from": "kiosk",
+      "to": "ledger",
+      "type": "writes",
+      "line": 1,
+      "label": "Records the loan"
+    },
+    {
+      "from": "ledger",
+      "to": "receipt",
+      "type": "flow",
+      "line": 1,
+      "label": "Sets the due date"
+    },
+    {
+      "from": "search",
+      "to": "holdq",
+      "type": "flow",
+      "line": 2,
+      "label": "Every copy is out"
+    },
+    {
+      "from": "holdq",
+      "to": "holdshelf",
+      "type": "flow",
+      "line": 2,
+      "label": "A copy comes free"
+    },
+    {
+      "from": "holdshelf",
+      "to": "kiosk",
+      "type": "flow",
+      "line": 2,
+      "label": "Member collects"
+    },
+    {
+      "from": "bin",
+      "to": "scanner",
+      "type": "flow",
+      "line": 3,
+      "label": "Emptied each morning"
+    },
+    {
+      "from": "scanner",
+      "to": "ledger",
+      "type": "writes",
+      "line": 3,
+      "label": "Closes the loan"
+    },
+    {
+      "from": "ledger",
+      "to": "cart",
+      "type": "flow",
+      "line": 3
+    },
+    {
+      "from": "cart",
+      "to": "shelves",
+      "type": "flow",
+      "line": 3,
+      "label": "Sorted by section"
+    },
+    {
+      "from": "ledger",
+      "to": "overdue",
+      "type": "reads",
+      "line": 4,
+      "label": "Nightly read"
+    },
+    {
+      "from": "overdue",
+      "to": "sender",
+      "type": "triggers",
+      "line": 4,
+      "label": "Three days late"
+    },
+    {
+      "from": "sender",
+      "to": "mailer",
+      "type": "flow",
+      "line": 4,
+      "status": "unknown",
+      "basis": "Does the reminder go by email, by text or both, and who supplies the service?"
+    },
+    {
+      "from": "search",
+      "to": "catalogue",
+      "type": "reads",
+      "label": "Finds copies"
+    },
+    {
+      "from": "shelves",
+      "to": "catalogue",
+      "type": "writes",
+      "label": "Location updated",
+      "status": "inferred",
+      "basis": "A catalogue that shows shelf location must be updated when books return."
+    },
+    {
+      "from": "fees",
+      "to": "card",
+      "type": "depends",
+      "status": "inferred",
+      "basis": "The card check blocks unpaid fees, so it must read the balance."
+    },
+    {
+      "from": "desk",
+      "to": "card",
+      "type": "triggers",
+      "label": "Overrides a block"
+    },
+    {
+      "from": "ledger",
+      "to": "report",
+      "type": "reads",
+      "status": "inferred",
+      "basis": "Loan counts can only come from the ledger."
+    },
+    {
+      "from": "cart",
+      "to": "holdq",
+      "type": "triggers",
+      "label": "A returned copy fills a hold",
+      "status": "inferred",
+      "basis": "Holds wait for a free copy, and returns are the only source named."
+    },
+    {
+      "from": "holdq",
+      "to": "partner",
+      "type": "depends",
+      "status": "unknown",
+      "basis": "Can a hold be filled by another library, and how would that book be tracked?"
+    }
+  ]
+}

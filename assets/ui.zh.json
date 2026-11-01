@@ -1,0 +1,77 @@
+{
+  "lang": "zh-CN",
+  "noscript": "这张地图需要脚本才能绘制，它不会发出任何网络请求。",
+  "fatalTitle": "这张地图没能画出来",
+  "fictional": "虚构示例",
+  "legend": "图例",
+  "legendShort": "图例",
+  "reset": "全部显示",
+  "search": "搜索站点",
+  "noMatch": "没有匹配的站点",
+  "handoff": "交接清单",
+  "handoffTitle": "交接清单：哪些已知，哪些未知",
+  "unknownCount": "{n} 项未知",
+  "close": "关闭",
+  "zoomIn": "放大",
+  "zoomOut": "缩小",
+  "fit": "全图",
+  "fitLong": "显示整张地图",
+  "mapLabel": "系统地图。拖动可平移，滚轮或双指可缩放，选中站点可打开档案。",
+  "linesH": "线路：点按只看这一条",
+  "typesH": "站点类型：点按隐藏",
+  "certaintyH": "确定程度：点按高亮",
+  "keyH": "地图上还有",
+  "interchange": "换乘站",
+  "linkKey": "线路之外的直接联系",
+  "owner": "负责方",
+  "colon": "：",
+  "servedH": "经过此站的线路",
+  "relH": "关系",
+  "noRel": "还没有人提供这一站的关系。",
+  "whyH": "为什么这样推断",
+  "questionH": "尚待回答的问题",
+  "types": {
+    "actor": "人或团队",
+    "process": "步骤或服务",
+    "store": "数据存储",
+    "queue": "队列或事件",
+    "decision": "判断",
+    "document": "文档",
+    "external": "外部系统"
+  },
+  "status": {
+    "fact": "已提供的事实",
+    "inferred": "推断",
+    "unknown": "未知"
+  },
+  "verbsOut": {
+    "flow": "接着到",
+    "reads": "读取",
+    "writes": "写入",
+    "triggers": "触发",
+    "depends": "依赖",
+    "returns": "退回到",
+    "sends": "发送给"
+  },
+  "verbsIn": {
+    "flow": "来自",
+    "reads": "读取方",
+    "writes": "写入方",
+    "triggers": "触发方",
+    "depends": "依赖方",
+    "returns": "退回自",
+    "sends": "接收自"
+  },
+  "handoffCols": {
+    "fact": "已提供的事实",
+    "inferred": "推断",
+    "unknown": "未知"
+  },
+  "handoffHints": {
+    "fact": "简报里明确说过。",
+    "inferred": "由简报推想而来，请确认。",
+    "unknown": "还没有人回答。它们会一直标在地图上。"
+  },
+  "typesHint": "未知站点仍保留名字。",
+  "handoffLines": "线路"
+}

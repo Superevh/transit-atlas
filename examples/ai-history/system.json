@@ -1,0 +1,340 @@
+{
+ "meta": {
+  "lang": "zh",
+  "title": "AI 发展全景地铁图",
+  "subtitle": "从 1956 到今天，五条线，三个没人答得上的问题。",
+  "fictional": false,
+  "keepLatin": [
+   "AI",
+   "AGI",
+   "AlexNet",
+   "ImageNet",
+   "CUDA",
+   "Transformer",
+   "GPT-3",
+   "ChatGPT",
+   "AlphaGo",
+   "InstructGPT",
+   "GAN",
+   "Stable Diffusion",
+   "Sora",
+   "Llama",
+   "DeepSeek-R1",
+   "GPU"
+  ]
+ },
+ "lines": [
+  {
+   "no": 1,
+   "name": "连接主义线",
+   "role": "今天大模型走的这条主路。"
+  },
+  {
+   "no": 2,
+   "name": "符号主义线",
+   "role": "最早的主流，用规则模拟智能。"
+  },
+  {
+   "no": 3,
+   "name": "强化学习线",
+   "role": "从下棋到让大模型听人话。"
+  },
+  {
+   "no": 4,
+   "name": "生成式线",
+   "role": "从生成图片到生成视频。"
+  },
+  {
+   "no": 5,
+   "name": "开源线",
+   "role": "ChatGPT 之后的另一条路。"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "dart",
+   "label": "达特茅斯 1956",
+   "type": "actor",
+   "note": "1956 年达特茅斯会议。"
+  },
+  {
+   "id": "expert",
+   "label": "专家系统 1980",
+   "type": "process",
+   "note": "1980 年代的专家系统。"
+  },
+  {
+   "id": "blue",
+   "label": "深蓝 1997",
+   "type": "process",
+   "note": "1997 年深蓝赢下国际象棋世界冠军。"
+  },
+  {
+   "id": "perc",
+   "label": "感知机 1958",
+   "type": "process",
+   "note": "1958 年感知机。"
+  },
+  {
+   "id": "bp",
+   "label": "反向传播 1986",
+   "type": "process",
+   "note": "1986 年反向传播。"
+  },
+  {
+   "id": "alex",
+   "label": "AlexNet 2012",
+   "type": "process",
+   "note": "算力和数据共同撑起 2012 年的 AlexNet。"
+  },
+  {
+   "id": "trans",
+   "label": "Transformer 2017",
+   "type": "process",
+   "note": "2017 年 Transformer。"
+  },
+  {
+   "id": "gpt3",
+   "label": "GPT-3 2020",
+   "type": "process",
+   "note": "2020 年 GPT-3。"
+  },
+  {
+   "id": "chat",
+   "label": "ChatGPT 2022",
+   "type": "process",
+   "note": "2022 年 ChatGPT。"
+  },
+  {
+   "id": "cuda",
+   "label": "GPU 与 ImageNet",
+   "type": "store",
+   "note": "2007 年 CUDA，2009 年 ImageNet，共同撑起 2012 年的 AlexNet。"
+  },
+  {
+   "id": "go",
+   "label": "AlphaGo 2016",
+   "type": "process",
+   "note": "2016 年 AlphaGo。"
+  },
+  {
+   "id": "instruct",
+   "label": "InstructGPT 2022",
+   "type": "process",
+   "note": "把人类反馈的强化学习用到大模型上。"
+  },
+  {
+   "id": "gan",
+   "label": "GAN 2014",
+   "type": "process",
+   "note": "2014 年 GAN。"
+  },
+  {
+   "id": "diff",
+   "label": "扩散模型 2020",
+   "type": "process",
+   "note": "2020 年扩散模型。"
+  },
+  {
+   "id": "sd",
+   "label": "Stable Diffusion",
+   "type": "process",
+   "note": "2022 年 Stable Diffusion。"
+  },
+  {
+   "id": "sora",
+   "label": "Sora 2024",
+   "type": "process",
+   "note": "2024 年 Sora。"
+  },
+  {
+   "id": "llama",
+   "label": "Llama 2023",
+   "type": "process",
+   "note": "2023 年 Llama。"
+  },
+  {
+   "id": "r1",
+   "label": "DeepSeek-R1 2025",
+   "type": "process",
+   "note": "2025 年 DeepSeek-R1。"
+  },
+  {
+   "id": "agent",
+   "label": "智能体",
+   "type": "process",
+   "status": "inferred",
+   "basis": "很多人叫它 2025 年的主角，是不是一个新阶段，还要再看。"
+  },
+  {
+   "id": "next",
+   "label": "下一站？",
+   "type": "external",
+   "status": "unknown",
+   "basis": "这趟车的下一站是哪？AGI 什么时候到，算不算一个站？"
+  },
+  {
+   "id": "scale",
+   "label": "堆算力的尽头",
+   "type": "document",
+   "status": "unknown",
+   "basis": "堆算力还能走多远？"
+  },
+  {
+   "id": "back",
+   "label": "符号主义回归？",
+   "type": "document",
+   "status": "unknown",
+   "basis": "符号主义还会回来吗？"
+  }
+ ],
+ "edges": [
+  {
+   "from": "dart",
+   "to": "perc",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "perc",
+   "to": "bp",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "bp",
+   "to": "alex",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "alex",
+   "to": "trans",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "trans",
+   "to": "gpt3",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "gpt3",
+   "to": "chat",
+   "type": "flow",
+   "line": 1
+  },
+  {
+   "from": "chat",
+   "to": "agent",
+   "type": "flow",
+   "line": 1,
+   "status": "inferred",
+   "basis": "很多人叫它 2025 年的主角，是不是一个新阶段，还要再看。"
+  },
+  {
+   "from": "agent",
+   "to": "next",
+   "type": "flow",
+   "line": 1,
+   "status": "unknown",
+   "basis": "这趟车的下一站是哪？AGI 什么时候到，算不算一个站？"
+  },
+  {
+   "from": "dart",
+   "to": "expert",
+   "type": "flow",
+   "line": 2
+  },
+  {
+   "from": "expert",
+   "to": "blue",
+   "type": "flow",
+   "line": 2
+  },
+  {
+   "from": "blue",
+   "to": "back",
+   "type": "flow",
+   "line": 2,
+   "status": "unknown",
+   "basis": "符号主义还会回来吗？"
+  },
+  {
+   "from": "alex",
+   "to": "go",
+   "type": "flow",
+   "line": 3
+  },
+  {
+   "from": "go",
+   "to": "instruct",
+   "type": "flow",
+   "line": 3
+  },
+  {
+   "from": "instruct",
+   "to": "chat",
+   "type": "flow",
+   "line": 3
+  },
+  {
+   "from": "alex",
+   "to": "gan",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "gan",
+   "to": "diff",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "diff",
+   "to": "sd",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "sd",
+   "to": "sora",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "chat",
+   "to": "llama",
+   "type": "flow",
+   "line": 5
+  },
+  {
+   "from": "llama",
+   "to": "r1",
+   "type": "flow",
+   "line": 5
+  },
+  {
+   "from": "r1",
+   "to": "agent",
+   "type": "flow",
+   "line": 5,
+   "status": "inferred",
+   "basis": "开源模型也走向智能体，简报没有明说，这里推断。"
+  },
+  {
+   "from": "gpt3",
+   "to": "scale",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "堆算力还能走多远？"
+  },
+  {
+   "from": "cuda",
+   "to": "alex",
+   "type": "depends",
+   "label": "算力和数据"
+  }
+ ]
+}

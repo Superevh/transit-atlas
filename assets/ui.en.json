@@ -1,0 +1,77 @@
+{
+  "lang": "en",
+  "noscript": "This map needs JavaScript to draw. It makes no network requests.",
+  "fatalTitle": "This map could not be drawn",
+  "fictional": "FICTIONAL EXAMPLE",
+  "legend": "LEGEND",
+  "legendShort": "Legend",
+  "reset": "Show all",
+  "search": "Search stations",
+  "noMatch": "No station matches",
+  "handoff": "Handoff",
+  "handoffTitle": "HANDOFF: WHAT IS KNOWN AND WHAT IS NOT",
+  "unknownCount": "{n} unknown",
+  "close": "Close",
+  "zoomIn": "Zoom in",
+  "zoomOut": "Zoom out",
+  "fit": "Fit",
+  "fitLong": "Fit the whole map",
+  "mapLabel": "System map. Drag to pan, scroll or pinch to zoom, select a station to open its dossier.",
+  "linesH": "LINES: TAP TO SHOW ONE",
+  "typesH": "STATION TYPES: TAP TO HIDE",
+  "certaintyH": "CERTAINTY: TAP TO HIGHLIGHT",
+  "keyH": "ALSO ON THE MAP",
+  "interchange": "Interchange",
+  "linkKey": "Direct link off the lines",
+  "owner": "Owner",
+  "colon": ": ",
+  "servedH": "LINES HERE",
+  "relH": "RELATIONSHIPS",
+  "noRel": "No relationship has been supplied yet.",
+  "whyH": "WHY THIS IS INFERRED",
+  "questionH": "QUESTION STILL OPEN",
+  "types": {
+    "actor": "Person or team",
+    "process": "Step or service",
+    "store": "Data store",
+    "queue": "Queue or event",
+    "decision": "Decision",
+    "document": "Document",
+    "external": "Outside system"
+  },
+  "status": {
+    "fact": "Supplied fact",
+    "inferred": "Inference",
+    "unknown": "Unknown"
+  },
+  "verbsOut": {
+    "flow": "Runs on to",
+    "reads": "Reads from",
+    "writes": "Writes to",
+    "triggers": "Triggers",
+    "depends": "Depends on",
+    "returns": "Returns to",
+    "sends": "Sends to"
+  },
+  "verbsIn": {
+    "flow": "Arrives from",
+    "reads": "Is read by",
+    "writes": "Is written by",
+    "triggers": "Is triggered by",
+    "depends": "Is needed by",
+    "returns": "Gets back from",
+    "sends": "Receives from"
+  },
+  "handoffCols": {
+    "fact": "Supplied facts",
+    "inferred": "Inferences",
+    "unknown": "Unknowns"
+  },
+  "handoffHints": {
+    "fact": "Stated in the brief.",
+    "inferred": "Worked out from the brief. Please confirm.",
+    "unknown": "Nobody has answered these. They stay marked on the map."
+  },
+  "typesHint": "Unknown stations stay named.",
+  "handoffLines": "LINES"
+}

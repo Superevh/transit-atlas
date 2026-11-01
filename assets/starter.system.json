@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "lang": "en",
+    "title": "REPLACE_ME: system name",
+    "subtitle": "REPLACE_ME: one line on what this map covers.",
+    "fictional": false
+  },
+  "lines": [
+    { "no": 1, "name": "REPLACE_ME", "role": "REPLACE_ME: what this route carries." }
+  ],
+  "nodes": [
+    { "id": "first", "label": "REPLACE_ME", "type": "actor", "note": "REPLACE_ME" },
+    { "id": "second", "label": "REPLACE_ME", "type": "process", "status": "inferred", "basis": "REPLACE_ME: why you think this." },
+    { "id": "third", "label": "REPLACE_ME", "type": "store", "status": "unknown", "basis": "REPLACE_ME: the question nobody has answered." }
+  ],
+  "edges": [
+    { "from": "first", "to": "second", "type": "flow", "line": 1, "label": "REPLACE_ME" },
+    { "from": "second", "to": "third", "type": "writes", "line": 1, "status": "unknown", "basis": "REPLACE_ME: the question nobody has answered." }
+  ]
+}

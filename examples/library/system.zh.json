@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "lang": "zh",
+    "title": "蕨谷图书馆：图书借阅",
+    "subtitle": "一本书怎样离开书架、回到书架，又该通知谁。",
+    "fictional": true
+  },
+  "lines": [
+    {
+      "no": 1,
+      "name": "借书线",
+      "role": "读者找到一本书并借走。"
+    },
+    {
+      "no": 2,
+      "name": "预约线",
+      "role": "已被借走的书被人预约并保留。"
+    },
+    {
+      "no": 3,
+      "name": "还书线",
+      "role": "书被归还并回到书架。"
+    },
+    {
+      "no": 4,
+      "name": "提醒线",
+      "role": "逾期的借阅产生一条提醒。"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "member",
+      "label": "读者",
+      "type": "actor",
+      "note": "持有蕨谷图书馆借书证的任何人。"
+    },
+    {
+      "id": "search",
+      "label": "馆藏检索",
+      "type": "process",
+      "note": "读者在网站或大厅终端上查找书名。"
+    },
+    {
+      "id": "card",
+      "label": "借书证核验",
+      "type": "decision",
+      "note": "确认借书证有效后才允许借阅。"
+    },
+    {
+      "id": "kiosk",
+      "label": "自助借书机",
+      "type": "process",
+      "note": "扫描借书证和图书，然后记录这笔借阅。"
+    },
+    {
+      "id": "ledger",
+      "label": "借阅台账",
+      "type": "store",
+      "note": "每笔借阅一行：读者、图书、借出日、应还日、归还日。"
+    },
+    {
+      "id": "receipt",
+      "label": "应还日回单",
+      "type": "document",
+      "note": "在借书机上打印，写明应还日，即借出后第二十一天。"
+    },
+    {
+      "id": "catalogue",
+      "label": "馆藏数据库",
+      "type": "store",
+      "note": "每个书名和每一册的记录，以及当前的书架位置。"
+    },
+    {
+      "id": "holdq",
+      "label": "预约队列",
+      "type": "queue",
+      "note": "对已借出图书的请求，先到先得。"
+    },
+    {
+      "id": "holdshelf",
+      "label": "预约书架",
+      "type": "process",
+      "note": "被预约的书在这里保留七天。"
+    },
+    {
+      "id": "bin",
+      "label": "还书箱",
+      "type": "process",
+      "note": "前墙上的投书口，全天开放。"
+    },
+    {
+      "id": "scanner",
+      "label": "还书扫描",
+      "type": "process",
+      "note": "每天早上由志愿者逐本扫描。"
+    },
+    {
+      "id": "cart",
+      "label": "分拣推车",
+      "type": "process",
+      "note": "归还的书在这里等待按分区整理。"
+    },
+    {
+      "id": "shelves",
+      "label": "开架书库",
+      "type": "store",
+      "note": "两层公共楼面上的全部实体藏书。"
+    },
+    {
+      "id": "overdue",
+      "label": "逾期判断",
+      "type": "decision",
+      "note": "每晚运行一次，找出超过应还日的借阅。"
+    },
+    {
+      "id": "sender",
+      "label": "提醒生成",
+      "type": "process",
+      "note": "为每笔逾期借阅写好提醒内容。"
+    },
+    {
+      "id": "mailer",
+      "label": "消息服务商",
+      "type": "external",
+      "status": "unknown",
+      "basis": "提醒是发邮件、发短信还是都发？这项服务由谁提供？"
+    },
+    {
+      "id": "fees",
+      "label": "欠费账户",
+      "type": "store",
+      "status": "inferred",
+      "basis": "简报说欠费的借书证会被拦下，所以每位读者的欠费一定记在某处。"
+    },
+    {
+      "id": "desk",
+      "label": "流通服务台",
+      "type": "actor",
+      "note": "两名工作人员，可以放行被拦下的借书证。"
+    },
+    {
+      "id": "report",
+      "label": "月度借阅报告",
+      "type": "document",
+      "status": "inferred",
+      "basis": "理事会每月查看借阅量，看来有一份从台账生成的报告。"
+    },
+    {
+      "id": "partner",
+      "label": "合作图书馆",
+      "type": "external",
+      "status": "unknown",
+      "basis": "预约能否由其他图书馆满足？那本书又如何追踪？"
+    }
+  ],
+  "edges": [
+    {
+      "from": "member",
+      "to": "search",
+      "type": "flow",
+      "line": 1,
+      "label": "查找书名"
+    },
+    {
+      "from": "search",
+      "to": "card",
+      "type": "flow",
+      "line": 1,
+      "label": "准备借阅"
+    },
+    {
+      "from": "card",
+      "to": "kiosk",
+      "type": "flow",
+      "line": 1,
+      "label": "借书证有效"
+    },
+    {
+      "from": "kiosk",
+      "to": "ledger",
+      "type": "writes",
+      "line": 1,
+      "label": "记录借阅"
+    },
+    {
+      "from": "ledger",
+      "to": "receipt",
+      "type": "flow",
+      "line": 1,
+      "label": "确定应还日"
+    },
+    {
+      "from": "search",
+      "to": "holdq",
+      "type": "flow",
+      "line": 2,
+      "label": "所有副本都已借出"
+    },
+    {
+      "from": "holdq",
+      "to": "holdshelf",
+      "type": "flow",
+      "line": 2,
+      "label": "有一册空出来"
+    },
+    {
+      "from": "holdshelf",
+      "to": "kiosk",
+      "type": "flow",
+      "line": 2,
+      "label": "读者来取"
+    },
+    {
+      "from": "bin",
+      "to": "scanner",
+      "type": "flow",
+      "line": 3,
+      "label": "每天早上清空"
+    },
+    {
+      "from": "scanner",
+      "to": "ledger",
+      "type": "writes",
+      "line": 3,
+      "label": "结束这笔借阅"
+    },
+    {
+      "from": "ledger",
+      "to": "cart",
+      "type": "flow",
+      "line": 3
+    },
+    {
+      "from": "cart",
+      "to": "shelves",
+      "type": "flow",
+      "line": 3,
+      "label": "按分区整理"
+    },
+    {
+      "from": "ledger",
+      "to": "overdue",
+      "type": "reads",
+      "line": 4,
+      "label": "每晚读取"
+    },
+    {
+      "from": "overdue",
+      "to": "sender",
+      "type": "triggers",
+      "line": 4,
+      "label": "逾期三天"
+    },
+    {
+      "from": "sender",
+      "to": "mailer",
+      "type": "flow",
+      "line": 4,
+      "status": "unknown",
+      "basis": "提醒是发邮件、发短信还是都发？这项服务由谁提供？"
+    },
+    {
+      "from": "search",
+      "to": "catalogue",
+      "type": "reads",
+      "label": "查到副本"
+    },
+    {
+      "from": "shelves",
+      "to": "catalogue",
+      "type": "writes",
+      "label": "更新位置",
+      "status": "inferred",
+      "basis": "馆藏要显示书架位置，书回架时就必须更新。"
+    },
+    {
+      "from": "fees",
+      "to": "card",
+      "type": "depends",
+      "status": "inferred",
+      "basis": "核验会拦下欠费，所以它必须读取余额。"
+    },
+    {
+      "from": "desk",
+      "to": "card",
+      "type": "triggers",
+      "label": "放行被拦下的证"
+    },
+    {
+      "from": "ledger",
+      "to": "report",
+      "type": "reads",
+      "status": "inferred",
+      "basis": "借阅量只可能来自台账。"
+    },
+    {
+      "from": "cart",
+      "to": "holdq",
+      "type": "triggers",
+      "label": "归还的书满足预约",
+      "status": "inferred",
+      "basis": "预约等的是空出来的副本，而归还是唯一提到的来源。"
+    },
+    {
+      "from": "holdq",
+      "to": "partner",
+      "type": "depends",
+      "status": "unknown",
+      "basis": "预约能否由其他图书馆满足？那本书又如何追踪？"
+    }
+  ]
+}
