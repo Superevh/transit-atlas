@@ -60,7 +60,7 @@ Each folder holds the brief, the data and the map.
 | Example | Live map |
 |---|---|
 | [70 years of AI](examples/ai-history) (Chinese) | [Open](https://superevh.github.io/transit-atlas/) |
-| [Data science, end to end](examples/data-science) (Chinese) | [Open](https://superevh.github.io/transit-atlas/data-science.html) |
+| [Data science panorama: five layers from the till to AI](examples/data-science) (Chinese) | [Open](https://superevh.github.io/transit-atlas/data-science.html) |
 | [Library loans](examples/library), fictional (English) | [Open](https://superevh.github.io/transit-atlas/library.html) |
 
 ## When not to use it

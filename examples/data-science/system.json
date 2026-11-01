@@ -2,287 +2,295 @@
  "meta": {
   "lang": "zh",
   "title": "数据科学全景地铁图",
-  "subtitle": "六条线，从数据到决策。没有定论的地方标着问号。",
+  "subtitle": "数据走完五层才交给 AI。黄色问号，每家公司都得自己答。",
   "fictional": false,
   "keepLatin": [
-   "CRISP-DM"
+   "AI"
   ]
  },
  "lines": [
   {
    "no": 1,
-   "name": "生命周期线",
-   "role": "CRISP-DM 六个阶段，全图的主干。"
+   "name": "五层主线",
+   "role": "数据从源头走到使用层的主路。"
   },
   {
    "no": 2,
-   "name": "数学统计线",
-   "role": "从基础数学一路通到评估模型。"
+   "name": "搬运线",
+   "role": "夜里的货车：搬运、重跑、对账。"
   },
   {
    "no": 3,
-   "name": "数据工程线",
-   "role": "数据从哪来、怎么变成模型能用的。"
+   "name": "建模线",
+   "role": "账本在仓库里怎么摆。"
   },
   {
    "no": 4,
-   "name": "机器学习线",
-   "role": "从建模出发，一直到大语言模型。"
+   "name": "指标线",
+   "role": "一个词，一个数。"
   },
   {
    "no": 5,
-   "name": "上线运维线",
-   "role": "模型上线以后的循环。"
+   "name": "使用线",
+   "role": "从看发生了什么，到一句话提问。"
   },
   {
    "no": 6,
-   "name": "业务决策线",
-   "role": "数据科学怎么变成决定。"
+   "name": "治理线",
+   "role": "贯穿全程，守着每一步。"
   }
  ],
  "nodes": [
   {
-   "id": "biz",
-   "label": "业务理解",
-   "type": "process",
-   "note": "CRISP-DM 第一阶段；部署后的经验回到这里。"
-  },
-  {
-   "id": "understand",
-   "label": "数据理解",
-   "type": "process",
-   "note": "CRISP-DM 第二阶段。"
-  },
-  {
-   "id": "prep",
-   "label": "数据准备",
-   "type": "process",
-   "note": "CRISP-DM 第三阶段；数据仓库供它使用。"
-  },
-  {
-   "id": "model",
-   "label": "建模",
-   "type": "process",
-   "note": "CRISP-DM 第四阶段。"
-  },
-  {
-   "id": "evaluate",
-   "label": "评估",
-   "type": "decision",
-   "note": "CRISP-DM 第五阶段；评估模型要用到数学统计。"
-  },
-  {
-   "id": "deploy",
-   "label": "部署",
-   "type": "process",
-   "note": "CRISP-DM 第六阶段。"
-  },
-  {
-   "id": "stats",
-   "label": "概率统计",
-   "type": "document"
-  },
-  {
-   "id": "design",
-   "label": "实验设计",
-   "type": "document"
-  },
-  {
    "id": "source",
    "label": "数据源",
-   "type": "external"
+   "type": "external",
+   "note": "收银台这样的业务系统，负责记账。"
+  },
+  {
+   "id": "clean",
+   "label": "采集与清洗",
+   "type": "process",
+   "note": "五层里的第二层。"
   },
   {
    "id": "dw",
    "label": "数据仓库",
-   "type": "store"
+   "type": "store",
+   "note": "负责算账。"
   },
   {
-   "id": "classic",
-   "label": "经典机器学习",
+   "id": "semantic",
+   "label": "指标语义层",
    "type": "process",
-   "note": "包括监督学习和无监督学习。"
+   "note": "每个指标只定义一次。"
   },
   {
-   "id": "deep",
-   "label": "深度学习",
-   "type": "process"
+   "id": "use",
+   "label": "使用层",
+   "type": "actor",
+   "note": "五层里的最上面一层。"
   },
   {
-   "id": "llm",
-   "label": "大语言模型",
-   "type": "process"
+   "id": "batch",
+   "label": "夜里批处理",
+   "type": "queue",
+   "note": "每天夜里批处理。"
   },
   {
-   "id": "monitor",
-   "label": "监控",
-   "type": "process",
-   "note": "监控发现数据漂移，就回到建模。"
+   "id": "recon",
+   "label": "重跑与对账",
+   "type": "decision",
+   "note": "好的管道要能放心重跑；每天搬完先对账，再进仓库。"
   },
   {
-   "id": "metric",
-   "label": "定义指标",
-   "type": "process",
-   "note": "业务理解之后定义指标，用它支持决策。"
+   "id": "realtime",
+   "label": "要不要实时",
+   "type": "decision",
+   "status": "unknown",
+   "basis": "晚多久，会造成损失？"
   },
   {
-   "id": "decide",
-   "label": "业务决策",
-   "type": "actor"
+   "id": "star",
+   "label": "星型模型",
+   "type": "document",
+   "note": "仓库里按星型模型摆账本。"
   },
   {
-   "id": "boundary",
-   "label": "和统计学的边界",
+   "id": "grain",
+   "label": "粒度",
    "type": "document",
    "status": "unknown",
-   "basis": "数据科学和统计学的边界在哪里？"
+   "basis": "一行到底代表什么？"
   },
   {
-   "id": "why",
-   "label": "模型为何这么判",
+   "id": "scd",
+   "label": "缓慢变化维度",
    "type": "document",
-   "status": "unknown",
-   "basis": "深度模型为什么做出这个判断？"
+   "note": "资料会变，旧的不改，加一行新的。"
   },
   {
-   "id": "takeover",
-   "label": "大模型接管哪步",
+   "id": "caliber",
+   "label": "写清口径",
+   "type": "document",
+   "note": "先写清口径。"
+  },
+  {
+   "id": "ratio",
+   "label": "比率先加总",
+   "type": "document",
+   "note": "比率不能直接平均，要先加总，再做除法。"
+  },
+  {
+   "id": "dash",
+   "label": "仪表盘",
+   "type": "process",
+   "note": "回答发生了什么。"
+  },
+  {
+   "id": "predict",
+   "label": "预测",
+   "type": "process",
+   "note": "回答会发生什么。"
+  },
+  {
+   "id": "ask",
+   "label": "AI 问答",
+   "type": "process",
+   "note": "任何人用一句话提问。"
+  },
+  {
+   "id": "quality",
+   "label": "质量检查",
+   "type": "decision",
+   "note": "检查不过就不进仓库。"
+  },
+  {
+   "id": "perm",
+   "label": "最小权限",
+   "type": "process",
+   "note": "权限只给刚好够用的那一点。"
+  },
+  {
+   "id": "aiperm",
+   "label": "AI 看得到什么",
    "type": "document",
    "status": "unknown",
-   "basis": "大语言模型会接管这条生命周期里的哪几步？"
+   "basis": "AI 能看到的，提问的人都该看到吗？"
   }
  ],
  "edges": [
   {
-   "from": "biz",
-   "to": "understand",
+   "from": "source",
+   "to": "clean",
    "type": "flow",
    "line": 1
   },
   {
-   "from": "understand",
-   "to": "prep",
+   "from": "clean",
+   "to": "dw",
    "type": "flow",
    "line": 1
   },
   {
-   "from": "prep",
-   "to": "model",
+   "from": "dw",
+   "to": "semantic",
    "type": "flow",
    "line": 1
   },
   {
-   "from": "model",
-   "to": "evaluate",
+   "from": "semantic",
+   "to": "use",
    "type": "flow",
    "line": 1
   },
   {
-   "from": "evaluate",
-   "to": "deploy",
+   "from": "clean",
+   "to": "batch",
    "type": "flow",
-   "line": 1
+   "line": 2
   },
   {
-   "from": "deploy",
-   "to": "biz",
-   "type": "returns",
-   "line": 1,
-   "label": "经验回到业务理解"
-  },
-  {
-   "from": "design",
-   "to": "evaluate",
+   "from": "recon",
+   "to": "dw",
    "type": "flow",
    "line": 2
   },
   {
    "from": "dw",
-   "to": "prep",
+   "to": "star",
    "type": "flow",
    "line": 3
   },
   {
-   "from": "model",
-   "to": "classic",
-   "type": "flow",
-   "line": 4
-  },
-  {
-   "from": "deep",
-   "to": "llm",
-   "type": "flow",
-   "line": 4
-  },
-  {
-   "from": "biz",
-   "to": "metric",
-   "type": "flow",
-   "line": 6
-  },
-  {
-   "from": "deep",
-   "to": "why",
+   "from": "star",
+   "to": "grain",
    "type": "depends",
+   "line": 3,
    "status": "unknown",
-   "basis": "深度模型为什么做出这个判断？"
+   "basis": "一行到底代表什么？"
   },
   {
-   "from": "llm",
-   "to": "takeover",
-   "type": "depends",
-   "status": "unknown",
-   "basis": "大语言模型会接管这条生命周期里的哪几步？"
-  },
-  {
-   "from": "stats",
-   "to": "design",
+   "from": "grain",
+   "to": "scd",
    "type": "flow",
-   "line": 2
+   "line": 3,
+   "status": "unknown",
+   "basis": "一行到底代表什么？"
   },
   {
-   "from": "source",
-   "to": "dw",
-   "type": "writes",
-   "line": 3
-  },
-  {
-   "from": "classic",
-   "to": "deep",
+   "from": "semantic",
+   "to": "caliber",
    "type": "flow",
    "line": 4
   },
   {
-   "from": "deploy",
-   "to": "monitor",
+   "from": "caliber",
+   "to": "ratio",
+   "type": "flow",
+   "line": 4
+  },
+  {
+   "from": "use",
+   "to": "dash",
    "type": "flow",
    "line": 5
   },
   {
-   "from": "stats",
-   "to": "boundary",
-   "type": "depends",
-   "status": "unknown",
-   "basis": "数据科学和统计学的边界在哪里？"
-  },
-  {
-   "from": "prep",
-   "to": "model",
+   "from": "dash",
+   "to": "predict",
    "type": "flow",
-   "line": 3
+   "line": 5
   },
   {
-   "from": "metric",
-   "to": "decide",
+   "from": "predict",
+   "to": "ask",
+   "type": "flow",
+   "line": 5
+  },
+  {
+   "from": "source",
+   "to": "quality",
    "type": "flow",
    "line": 6
   },
   {
-   "from": "monitor",
-   "to": "model",
-   "type": "triggers",
-   "line": 5,
-   "label": "发现数据漂移"
+   "from": "quality",
+   "to": "dw",
+   "type": "flow",
+   "line": 6
+  },
+  {
+   "from": "dw",
+   "to": "perm",
+   "type": "flow",
+   "line": 6
+  },
+  {
+   "from": "perm",
+   "to": "use",
+   "type": "flow",
+   "line": 6
+  },
+  {
+   "from": "batch",
+   "to": "realtime",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "晚多久，会造成损失？"
+  },
+  {
+   "from": "ask",
+   "to": "aiperm",
+   "type": "depends",
+   "status": "unknown",
+   "basis": "AI 能看到的，提问的人都该看到吗？"
+  },
+  {
+   "from": "batch",
+   "to": "recon",
+   "type": "flow",
+   "line": 2
   }
  ]
 }
